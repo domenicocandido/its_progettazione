@@ -1,14 +1,17 @@
 from custom_types import RealGTZ
-from typing import List
-from volo import Volo
-from città import Citta
+from typing import List, TYPE_CHECKING
+from citta import Citta
+
+if TYPE_CHECKING:
+    from volo import Volo
 
 class Compagnia:
 
     _nome:str
     _anno:RealGTZ
-    _volo: Volo
     _citta:Citta
+    _voli:List["Volo"]
+
 
     def __init__(self, nome:str, anno:RealGTZ) -> None:
 
@@ -27,13 +30,19 @@ class Compagnia:
     def get_anno(self) -> RealGTZ:
         return self._anno
     
-    def aggiungi_volo(self, volo: Volo) -> None:
+    def aggiungi_volo(self, volo: "Volo") -> None:
         self._voli.append(volo)
 
-    def get_volo(self) -> Volo:
+    def get_volo(self) -> "Volo":
         return self
     
-    def rimuovi_volo(self, volo: Volo) -> None:
+    def rimuovi_volo(self, volo: "Volo") -> None:
         if volo in self._voli:
             self._voli.remove(volo)
+
+    def get_citta(self) -> Citta:
+        return self._citta
+    
+    def set_citta(self, citta: "Citta") -> None:
+        self._citta = citta
         

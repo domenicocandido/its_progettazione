@@ -1,4 +1,4 @@
-from typing import Self, Type
+from typing import Self
 
 class RealGTZ(float):
 
