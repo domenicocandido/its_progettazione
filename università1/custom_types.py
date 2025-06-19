@@ -26,20 +26,20 @@ class RealGEZ(float):
 import re
 
 class CodiceFiscale:
-    def _init_(self, codice):
+    def __init__(self, codice):
         if not self._valida_codice(codice):
             raise ValueError("Codice Fiscale non valido.")
         self.codice = codice.upper()
 
-    def _str_(self):
+    def __str__(self):
         return self.codice
 
-    def _eq_(self, other):
+    def __eq__(self, other):
         if isinstance(other, CodiceFiscale):
             return self.codice == other.codice
         return False
 
-    def _len_(self):
+    def __len__(self):
         return len(self.codice)
 
     @staticmethod
