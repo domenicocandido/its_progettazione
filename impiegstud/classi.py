@@ -1,6 +1,6 @@
 from __future__ import annotations
 from custom_types import *
-
+from frozendict import frozendict
 
 class Persona:
     _nome: str
@@ -75,7 +75,7 @@ class Impiegato(Persona):
 
         self._stipendio = stipendio
         self._ruolo = ruolo
-        self._is_responsabile = is_responsabile
+        self._is_responsabile = False
 
         if ruolo == Ruolo.progettista:
             if is_responsabile:
@@ -115,6 +115,9 @@ class Impiegato(Persona):
             self._is_responsabile = True
         else:
             self._is_responsabile = False
+
+    def is_respondabile(self):
+        return self._is_responsabile
            
 
 imp = Impiegato( nome="Domenico", cognome="Candido", cf=[CodiceFiscale("CNDDNC05E17I234E")], genere=Genere.uomo, stipendio=RealGEZ(2800.0), ruolo=Ruolo.progettista, is_responsabile=True)
@@ -135,12 +138,20 @@ class Studente(Persona):
     def getMatricola(self) -> RealGTZ:
         return self._matricola
     
-class Progetto:
+class Progetto():
     
     _nome:str
 
-    def __init__(self, nome:str):
-        self._nome = nome
+    def __init__(self, nomeP:str, nome_responsabile:Impiegato):
+        self._nome = nomeP
+        self._nome_responsabile = nome_responsabile
+
+    def registro(self, nomeP:str, nome_responsabile:):
+
+        if nome_responsabile
+
+
+
 
 class PosizioneMilitare:
     

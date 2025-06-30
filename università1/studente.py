@@ -1,7 +1,6 @@
 from custom_types import RealGTZ, CodiceFiscale
 from datetime import date
 from corso import Corso
-
 class Studente:
 
     _nome:str
